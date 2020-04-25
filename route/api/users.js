@@ -104,6 +104,7 @@ router.get('/reset/:email', async (req, res) => {
 
     res.status(200).send('Check Your Email');
   } catch (err) {
+    console.log(err);
     res.status(500).json({ msg: 'Server Error' });
   }
 });
