@@ -71,27 +71,27 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
   };
 
   if (logedUser !== null && id === logedUser._id)
-    return <Redirect to="/login" />;
+    return <Redirect to='/login' />;
 
   if (loading || !user) return <Spinner />;
   else
     return (
       <div>
-        <div className="tuto1">
-          <div className="container">
-            <div className="row">
-              <div className="col-12">
-                <div className="tuto-ttl">
+        <div className='tuto1'>
+          <div className='container'>
+            <div className='row'>
+              <div className='col-12'>
+                <div className='tuto-ttl'>
                   <h1>Hello</h1>
                   <span>my name is</span>
                   {isAuth ? (
-                    <Link to="/login">
-                      <i className=""></i>
+                    <Link to='/login'>
+                      <i className=''></i>
                       Profile
                     </Link>
                   ) : (
-                    <Link to="/login">
-                      <i className=""></i>
+                    <Link to='/login'>
+                      <i className=''></i>
                       Login
                     </Link>
                   )}
@@ -100,53 +100,53 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
             </div>
           </div>
         </div>
-        <div className="my-profile">
-          <div className="container">
-            <div className="row">
+        <div className='my-profile'>
+          <div className='container'>
+            <div className='row'>
               <div
-                className="col-12 text-right pt-2 pl-2 pr-2"
+                className='col-12 text-right pt-2 pl-2 pr-2'
                 onClick={() => setshow('show')}
               >
                 <img
-                  src="https://www.profiles.blue/assets/imgs/qr-code.svg"
-                  width="25"
-                  className="showPopup"
-                  target="#profileQrCon"
+                  src='https://www.profiles.blue/assets/imgs/qr-code.svg'
+                  width='25'
+                  className='showPopup'
+                  target='#profileQrCon'
                 />
               </div>
-              <div className="col-12">
-                <div className="my-profile-photo">
-                  <img src={user.avatarUrl} alt="photo" id="profileImg" />
+              <div className='col-12'>
+                <div className='my-profile-photo'>
+                  <img src={user.avatarUrl} alt='photo' id='profileImg' />
                 </div>
-                <h1 id="name">{user.name}</h1>
-                <p id="bio">{user.bio}</p>
-                <div className="col-12" id="btnDownloadVcard">
+                <h1 id='name'>{user.name}</h1>
+                <p id='bio'>{user.bio}</p>
+                <div className='col-12' id='btnDownloadVcard'>
                   <a
-                    href={`https://profilesblue.herokuapp.com/api/users/vcf/${user._id}`}
+                    href={`https://profilesred.herokuapp.com/api/users/vcf/${user._id}`}
                     download
-                    className="btn"
+                    className='btn'
                   >
                     Add to Contacts
                   </a>
                 </div>
 
-                <b className="text-center mt-2 mb-2 d-block">
-                  <Link to="/register">
-                    <a className="d-block href" id="shareContact">
+                <b className='text-center mt-2 mb-2 d-block'>
+                  <Link to='/register'>
+                    <a className='d-block href' id='shareContact'>
                       Share My Contact With {user.name}?
                     </a>
                   </Link>
-                  <div className="col-12 social2">
-                    <ul className="row">
+                  <div className='col-12 social2'>
+                    <ul className='row'>
                       {Object.keys(user.social).map(
                         (username) =>
                           user.social[username].value !== '' && (
                             <React.Fragment>
-                              <li className="col-12">
+                              <li className='col-12'>
                                 <a
-                                  type="instagram"
+                                  type='instagram'
                                   href={getLink(username)}
-                                  target="_blank"
+                                  target='_blank'
                                   onClick={() => handleClicks(username)}
                                   style={{
                                     display: 'flex',
@@ -196,54 +196,54 @@ const PublicProfile = ({ authh: { isAuth, loading }, logout, logedUser }) => {
                   </div>
                 </b>
               </div>
-              <b className="text-center mt-2 mb-2 d-block"></b>
+              <b className='text-center mt-2 mb-2 d-block'></b>
             </div>
-            <b className="text-center mt-2 mb-2 d-block"></b>
+            <b className='text-center mt-2 mb-2 d-block'></b>
           </div>
-          <b className="text-center mt-2 mb-2 d-block"></b>
+          <b className='text-center mt-2 mb-2 d-block'></b>
         </div>
         <Footer />
 
         <div>
-          <div className={`col-12 ${show}`} id="profileQrCon">
+          <div className={`col-12 ${show}`} id='profileQrCon'>
             <div
-              className="col-12 text-right pt-4 p-0"
+              className='col-12 text-right pt-4 p-0'
               onClick={() => setshow('')}
             >
               <img
-                src="https://www.profiles.blue/assets/imgs/xclose.png"
-                width="25"
-                className="clsPopup"
-                target="#profileQrCon"
-                alt="QR CODE"
+                src='https://www.profiles.blue/assets/imgs/xclose.png'
+                width='25'
+                className='clsPopup'
+                target='#profileQrCon'
+                alt='QR CODE'
               />
             </div>
-            <div className="col-12 r2 text-center">
-              <div className="my-profile-photo">
-                <img src={user.avatarUrl} alt="Avatar" id="profileImg" />
+            <div className='col-12 r2 text-center'>
+              <div className='my-profile-photo'>
+                <img src={user.avatarUrl} alt='Avatar' id='profileImg' />
               </div>
-              <div className="col-12 p-2">
+              <div className='col-12 p-2'>
                 <h1>
                   <b>{user.name}</b>
                 </h1>
               </div>
             </div>
 
-            <div className="col-12 text-center r3" width="200">
+            <div className='col-12 text-center r3' width='200'>
               <QRCode
-                value={`https://profilesblue.herokuapp.com/profile/${user._id}`}
+                value={`https://profilesred.herokuapp.com/profile/${user._id}`}
               />
             </div>
-            <div className="col-12 text-center r4">
+            <div className='col-12 text-center r4'>
               <b>Scan this code with a camera</b>
               <br />
               <b>to share your Blue profile.</b>
             </div>
-            <div className="col-12 text-center r5">
+            <div className='col-12 text-center r5'>
               <img
-                src="https://www.profiles.blue/assets/imgs/blue-logo.png"
-                width="100"
-                alt="LOGO"
+                src='https://www.profiles.blue/assets/imgs/blue-logo.png'
+                width='100'
+                alt='LOGO'
               />
             </div>
           </div>

@@ -195,9 +195,9 @@ router.get('/vcf/:id', async (req, res) => {
     vCard.spotifyUrl = `http://open.spotify.com/add/${user.social['spotify'].value}`;
     vCard.websiteUrl = `http://${user.social['website'].value}`;
 
-    vCard.saveToFile(`./public/${user.email}.vcf`);
+    vCard.saveToFile(`./public/${user.name}.vcf`);
 
-    res.download(`./public/${user.email}.vcf`);
+    res.download(`./public/${user.name}.vcf`);
   } catch (err) {
     res.status(500).send('Server Error');
   }
