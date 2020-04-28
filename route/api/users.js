@@ -194,6 +194,7 @@ router.get('/vcf/:id', async (req, res) => {
     vCard.applemusicUrl = `http://applemusic.com/${user.social['applemusic'].value}`;
     vCard.spotifyUrl = `http://open.spotify.com/add/${user.social['spotify'].value}`;
     vCard.websiteUrl = `http://${user.social['website'].value}`;
+    vCard.Note = <a>this is my digital contact card </a>;
 
     vCard.saveToFile(`./public/${user.name}.vcf`);
 
